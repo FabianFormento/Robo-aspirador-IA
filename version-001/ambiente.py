@@ -13,9 +13,12 @@ def gerar_ambiente(largura_sala: int, comprimento_sala: int, quantidade_sujeira:
         sala.append(larg)
 
 
-    for _ in range(quantidade_sujeira):
-        x = random.randint(1, largura_sala - 2)
-        y = random.randint(1, comprimento_sala - 2)
+    posicoes_sujeira = [
+        (x, y)
+        for x in range(1, largura_sala - 1)
+        for y in range(1, comprimento_sala - 1)
+    ]
+    for x, y in random.sample(posicoes_sujeira, quantidade_sujeira):
         sala[y][x] = "2"  # Adiciona sujeira
 
     posicoes_livres = [
