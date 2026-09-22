@@ -10,7 +10,7 @@ LIMPO = 0
 PAREDE = 1
 SUJO = 2
 
-ACOES = ("acima", "abaixo", "esquerda", "direita", "aspirar")
+ACOES = ("acima", "abaixo", "esquerda", "direita", "aspirar", "NoOp")
 MOVIMENTOS = {
     "acima": (0, -1),
     "abaixo": (0, 1),
@@ -57,6 +57,9 @@ def checkObj(sala: list[list[int]]) -> int:
 
 def executar_acao(sala: list[list[int]], posicao: tuple[int, int], acao: str) -> tuple[int, int]:
     x, y = posicao
+
+    if acao == "NoOp":
+        return posicao
 
     if acao == "aspirar":
         sala[y][x] = LIMPO

@@ -32,3 +32,10 @@ def agenteReativoSimples(percepcao: tuple[int, int, bool]) -> str:
         return "aspirar"
 
     return MAPA[(x, y)]
+
+
+def agenteObjetivo(percepcao: tuple[int, int, bool], objObtido: int) -> str:
+    if objObtido == 0:
+        return "NoOp"
+
+    return agenteReativoSimples(percepcao)
